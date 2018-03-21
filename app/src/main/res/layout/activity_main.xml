@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        app:mtf_labelColor="@color/colorAccent"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_launcher_background"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="账号/手机号"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="13sp" />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/password"
+        android:layout_below="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        app:mtf_labelColor="@color/colorAccent"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_launcher_background"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="12sp" />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+</RelativeLayout>

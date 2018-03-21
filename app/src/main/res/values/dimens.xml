@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="mtf_cardHeight_initial">4dp</dimen>
+    <dimen name="mtf_cardHeight_final">50dp</dimen>
+    <dimen name="mtf_corner_radius">4dp</dimen>
+    <dimen name="oneDp">1dp</dimen>
+    <dimen name="twoDp">2dp</dimen>
+    <dimen name="threeDp">3dp</dimen>
+    <dimen name="fourDp">4dp</dimen>
+</resources>

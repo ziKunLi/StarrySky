@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/bgVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:foregroundGravity="center" />
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/head_bg"/>
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        app:mtf_labelColor="@color/font14"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_id"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        app:mtf_backgroundColor="#42f8f2ff"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="账号/手机号"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="15sp"  />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/password"
+        android:layout_below="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        app:mtf_labelColor="@color/font14"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_password"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        app:mtf_backgroundColor="#42f8f2ff"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="25dp"
+        android:text="登录"/>
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignTop="@+id/line">
+
+        <TextView
+            android:id="@+id/forget"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="60dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:text="忘记密码"/>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"/>
+        <TextView
+            android:id="@+id/registered"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/font11"
+            android:text="注册"/>
+    </LinearLayout>
+
+</RelativeLayout>

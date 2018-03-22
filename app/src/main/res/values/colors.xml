@@ -5,4 +5,25 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="mtfBg">#1d6d7b75</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="blue">#0000ff</color>
+
+    <color name="font1">#111111</color>
+    <color name="font2">#222222</color>
+    <color name="font3">#333333</color>
+    <color name="font4">#444444</color>
+    <color name="font5">#555555</color>
+    <color name="font6">#666666</color>
+    <color name="font7">#777777</color>
+    <color name="font8">#888888</color>
+    <color name="font9">#999999</color>
+    <color name="font10">#aaaaaa</color>
+    <color name="font11">#bbbbbb</color>
+    <color name="font12">#cccccc</color>
+    <color name="font13">#dddddd</color>
+    <color name="font14">#eeeeee</color>
+
 </resources>

@@ -9,4 +9,39 @@
         <attr name="mtf_openKeyboardOnFocus" format="boolean"/>
         <attr name="mtf_backgroundColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="BottomBarItem">
+        <!--普通情况下展示的图标-->
+        <attr name="normalIcon" format="reference"/>
+        <!--选中时展示的图标-->
+        <attr name="selectedIcon" format="reference"/>
+        <!--文本-->
+        <attr name="text" format="string"/>
+        <!--文本字体大小-->
+        <attr name="textSize" format="dimension"/>
+        <!--普通情况下文本颜色-->
+        <attr name="normalTextColor" format="color"/>
+        <!--选中情况下文本颜色-->
+        <attr name="selectedTextColor" format="color"/>
+        <!--是否开启触摸背景特效-->
+        <attr name="useTouchBg" format="boolean"/>
+        <!--触摸特效-->
+        <attr name="touchDrawable" format="reference"/>
+        <!--图标的宽度-->
+        <attr name="iconWidth" format="dimension"/>
+        <!--图标的高度-->
+        <attr name="iconHeight" format="dimension"/>
+        <!--未读数字体大小-->
+        <attr name="unReadTextSize" format="dimension"/>
+        <!--提示消息字体大小-->
+        <attr name="tipMessageTextSize" format="dimension"/>
+        <!--未读数数量最大值，超过该值将会以+号形式显示-->
+        <attr name="unReadMaxText" format="integer"/>
+        <!--小红点的大小-->
+        <attr name="pointSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="BottomBarLayout">
+         <attr name="smoothScroll" format="boolean"/>
+    </declare-styleable>
 </resources>

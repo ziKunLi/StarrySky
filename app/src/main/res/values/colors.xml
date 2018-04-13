@@ -26,4 +26,8 @@
     <color name="font13">#dddddd</color>
     <color name="font14">#eeeeee</color>
 
+    <color name="selector_grey">#DDDDDD</color>
+    <color name="tab_gb">#F3F5F4</color>
+    <color name="tab_normal_color">#515051</color>
+    <color name="tab_selected_color">#D33D3C</color>
 </resources>

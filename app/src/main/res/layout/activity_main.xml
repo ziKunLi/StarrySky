@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-</RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <com.example.newbies.starrysky.view.BottomBarLayout
+        android:id="@+id/bottomBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@color/tab_gb"
+        >
+
+        <com.example.newbies.starrysky.view.BottomBarItem
+            android:id="@+id/chart"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:normalIcon="@mipmap/tab_micro_normal"
+            app:selectedIcon="@mipmap/tab_micro_selected"
+            app:iconHeight="25dp"
+            app:iconWidth="25dp"
+            app:useTouchBg="true"
+            app:touchDrawable="@drawable/selector_bg"
+            />
+
+        <com.example.newbies.starrysky.view.BottomBarItem
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:normalIcon="@mipmap/tab_home_normal"
+            app:selectedIcon="@mipmap/tab_home_selected"
+            app:iconHeight="25dp"
+            app:iconWidth="25dp"
+            app:useTouchBg="true"
+            app:touchDrawable="@drawable/selector_bg"
+            />
+
+        <com.example.newbies.starrysky.view.BottomBarItem
+            android:id="@+id/friend"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:normalIcon="@mipmap/tab_me_normal"
+            app:selectedIcon="@mipmap/tab_me_selected"
+            app:iconHeight="25dp"
+            app:iconWidth="25dp"
+            app:useTouchBg="true"
+            app:touchDrawable="@drawable/selector_bg"
+            />
+
+    </com.example.newbies.starrysky.view.BottomBarLayout>
+
+</LinearLayout>

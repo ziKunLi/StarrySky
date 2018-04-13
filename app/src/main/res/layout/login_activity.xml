@@ -122,5 +122,4 @@
             android:textColor="@color/font11"
             android:text="注册"/>
     </LinearLayout>
-
 </RelativeLayout>

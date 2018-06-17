@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 主界面底部导航栏
  * @author ChayChan
  * @description: 底部页签根节点
  * @date 2017/6/23  11:02

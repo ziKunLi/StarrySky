@@ -17,11 +17,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.newbies.starrysky.LogUtil;
 import com.example.newbies.starrysky.R;
 
 /**
- *
+ * 登录界面那个很酷的输入框
  * @author NewBies
  * @date 2018/3/21
  */
@@ -117,7 +116,6 @@ public class MaterialTextField extends FrameLayout {
                         @Override
                         public void onAnimationStart(View view) {
                             if (expanded) {
-                                LogUtil.v("ttttt");
                                 editText.setVisibility(View.VISIBLE);
                             }
                         }
@@ -125,7 +123,6 @@ public class MaterialTextField extends FrameLayout {
                         @Override
                         public void onAnimationEnd(View view) {
                             if (!expanded) {
-                                LogUtil.v("ssss");
                                 editText.setVisibility(View.INVISIBLE);
                             }
                         }

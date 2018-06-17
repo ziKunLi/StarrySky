@@ -1,4 +1,4 @@
-package com.example.newbies.starrysky;
+package com.example.newbies.starrysky.util;
 
 import android.util.Log;
 

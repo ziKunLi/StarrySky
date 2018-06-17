@@ -1,4 +1,4 @@
-package com.example.newbies.starrysky.view;
+package com.example.newbies.starrysky.util;
 
 import android.content.Context;
 

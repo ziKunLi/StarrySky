@@ -6,22 +6,21 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.newbies.starrysky.LogUtil;
 import com.example.newbies.starrysky.R;
+import com.example.newbies.starrysky.util.LogUtil;
+import com.example.newbies.starrysky.util.UIUtils;
 
 /**
- *
+ * 主界面底部导航菜单
  * @author NewBies
  * @date 2018/4/6
  */
@@ -132,7 +131,7 @@ public class BottomBarItem extends LinearLayout{
         selectedIcon = typedArray.getResourceId(R.styleable.BottomBarItem_selectedIcon,-1);
         text = typedArray.getString(R.styleable.BottomBarItem_text);
         //默认为12sp
-        textSize = typedArray.getDimensionPixelSize(R.styleable.BottomBarItem_textSize,UIUtils.sp2px(context,12));
+        textSize = typedArray.getDimensionPixelSize(R.styleable.BottomBarItem_textSize, UIUtils.sp2px(context,12));
         normalTextColor = typedArray.getColor(R.styleable.BottomBarItem_normalTextColor, Color.BLACK);
         selectedTextColor = typedArray.getColor(R.styleable.BottomBarItem_selectedTextColor,Color.RED);
         useTouchBg = typedArray.getBoolean(R.styleable.BottomBarItem_useTouchBg,false);

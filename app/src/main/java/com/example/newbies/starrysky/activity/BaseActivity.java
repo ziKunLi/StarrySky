@@ -21,7 +21,6 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import com.example.newbies.starrysky.LogUtil;
 import com.example.newbies.starrysky.R;
 
 

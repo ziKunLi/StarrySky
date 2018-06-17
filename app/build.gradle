@@ -24,6 +24,7 @@ android {
             res.srcDirs =
 
                     [
+                            'src/main/res/layout/item',
                             'src/main/res/layout/pager',
                             'src/main/res/layout/view',
                             'src/main/res/layout',
@@ -45,4 +46,7 @@ dependencies {
     //依赖注解框架，用注解的方式绑定组件
     compile 'com.jakewharton:butterknife:8.8.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+    //目前Java语言中最快的JSON库
+    compile 'com.alibaba:fastjson:1.2.44'
+    compile 'com.alibaba:fastjson:1.1.67.android'
 }

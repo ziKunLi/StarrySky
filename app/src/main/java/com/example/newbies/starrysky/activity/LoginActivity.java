@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.newbies.starrysky.R;
+import com.example.newbies.starrysky.nio.Client;
+import com.example.newbies.starrysky.nio.ClientHandler;
 import com.example.newbies.starrysky.view.MaterialTextField;
 
 import butterknife.BindView;
@@ -99,6 +101,9 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.login)
     public void login(){
         showToast("登录");
+        Client client = Client.getInstance();
+        client.connect("192.168.0.142", 6666);
+        client.online(new ClientHandler());
         startActivity(MainActivity.class);
         finish();
     }

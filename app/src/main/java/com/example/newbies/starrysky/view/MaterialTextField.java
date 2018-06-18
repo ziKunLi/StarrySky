@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.newbies.starrysky.R;
+import com.example.newbies.starrysky.util.LogUtil;
 
 /**
  * 登录界面那个很酷的输入框

@@ -1,5 +1,7 @@
 package com.example.newbies.starrysky.nio;
 
+import com.example.newbies.starrysky.MessagePool;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.channels.SelectionKey;
@@ -16,7 +18,7 @@ public class Client {
     private Selector selector;
     private ClientHandler clientHandler;
 	private static Client client = new Client();
-	private boolean isOffline = false;
+	private boolean isOffline = true;
 	
 	private Client(){}
 	
@@ -48,11 +50,11 @@ public class Client {
 	 * 设置处理器，同时注册
 	 * @param clientHandler
 	 */
-	public void online(ClientHandler clientHandler){
+	public void online(ClientHandler clientHandler,String id, String password){
 		this.clientHandler = clientHandler;
 
 		try{
-			while(!isOffline){  
+			do{
 				selector.select();
 				Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();  
 	            while(iterator.hasNext()){  
@@ -64,12 +66,17 @@ public class Client {
 	                	if(!clientHandler.handleRegister(channel,key)){
 	                		isOffline = true;
 	                	}
+	                	else{
+							isOffline = false;
+	                		//发送登录信息
+	                		sendMessage(MessagePool.login(id,password));
+						}
 	                }  
 	                else if(key.isReadable()){ 
 	                	clientHandler.readMessage();                        
 	                }  
 	            }   
-	        }
+	        }while(!isOffline);
 		}
 		catch (Exception e){
 			e.printStackTrace();

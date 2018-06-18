@@ -8,10 +8,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.example.newbies.starrysky.MessagePool;
 import com.example.newbies.starrysky.R;
+import com.example.newbies.starrysky.StaticDataPool;
 import com.example.newbies.starrysky.nio.Client;
 import com.example.newbies.starrysky.nio.ClientHandler;
+import com.example.newbies.starrysky.util.LogUtil;
 import com.example.newbies.starrysky.view.MaterialTextField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,7 +82,11 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
+        List<String> receivers = new ArrayList<>();
+        receivers.add("1");
+        receivers.add("2");
+        receivers.add("3");
+        LogUtil.v(MessagePool.generalMessage("111",receivers,"你好"));
     }
 
     @Override
@@ -101,9 +111,20 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.login)
     public void login(){
         showToast("登录");
-        Client client = Client.getInstance();
-        client.connect("192.168.0.142", 6666);
-        client.online(new ClientHandler());
+        final String idString = id.getEditText().getText().toString();
+        final String passwordString = password.getEditText().getText().toString();
+        if(idString == null||idString.equals("")||passwordString == null||passwordString.equals("")){
+            showToast("请输入账号或密码");
+            return;
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                StaticDataPool.client.connect("192.168.23.1", 6666);
+                //上线后，将会一直死循环监听服务器发来的消息，所以需要开启线程
+                StaticDataPool.client.online(new ClientHandler(),idString,passwordString);
+            }
+        }).start();
         startActivity(MainActivity.class);
         finish();
     }

@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
+import com.example.newbies.starrysky.MessagePool;
 import com.example.newbies.starrysky.R;
+import com.example.newbies.starrysky.StaticDataPool;
 import com.example.newbies.starrysky.adapter.ExpandableListAdapter;
 import com.example.newbies.starrysky.adapter.SampleViewPagerAdapter;
 import com.example.newbies.starrysky.entity.FriendSampleInfo;
@@ -164,7 +166,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemSelected(BottomBarItem bottomBarItem, int position) {
                 bottomBarItem.setStatus(true);
-                System.err.println("position : " + position);
+                StaticDataPool.client.sendMessage(MessagePool.login("1","2"));
             }
         });
     }
@@ -173,5 +175,6 @@ public class MainActivity extends BaseActivity {
     public void onClick(View v) {
 
     }
+
 
 }

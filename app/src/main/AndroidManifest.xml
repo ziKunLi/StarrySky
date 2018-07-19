@@ -15,17 +15,25 @@
         android:name=".MyApplication">
         <activity
             android:name=".activity.LoginActivity"
-            android:launchMode="singleTask"
             android:alwaysRetainTaskState="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- 以下两句是将程序设置为桌面启动，防止程序退出 -->
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activity.MainActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".activity.ChartActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".activity.RegistActivity"
             android:launchMode="singleTask"/>
 
     </application>

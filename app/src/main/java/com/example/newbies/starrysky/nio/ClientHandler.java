@@ -23,10 +23,6 @@ import java.util.concurrent.Executors;
  */
 public class ClientHandler{
 
-	/**
-	 * 防止发送信息线程被重复创建
-	 */
-	private boolean isStart = false;
 
 	private Executor executor = Executors.newSingleThreadExecutor();
 
@@ -97,24 +93,69 @@ public class ClientHandler{
 	 * 读取服务器发来的信息
 	 */
 	public void readMessage() {
-		ByteBuffer byteBuffer = ByteBuffer.allocate(128);
+		ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 		try {
-			channel.read(byteBuffer);
+			if(channel.read(byteBuffer) == -1){
+				return;
+			}
 			byteBuffer.flip();
 			CharBuffer charBuffer = CharsetHelper.decode(byteBuffer);
 			List<String> packageList = packageUtil.match(charBuffer.toString());
+
+			LogUtil.v("package: " + packageList.toString());
 			for(int i = 0 ; i < packageList.size(); i++){
 				HashMap hashMap = JsonUtil.jsonToObject(packageList.get(i),HashMap.class);
 				String type = (String) hashMap.get("type");
 				switch (type){
 					//注册应答信息
 					case "1":
+						intent.setAction(StaticDataPool.REGIST_REPLY_MESSAGE);
+						intent.putExtra("status",(int)hashMap.get("status"));
+						broadcastManager.sendBroadcast(intent);
 						break;
 					//普通消息
 					case "3":
 						intent.setAction(StaticDataPool.GENERAL_MESSAGE);
-						intent.putExtra("sender",(String)hashMap.get("sender"));
+						intent.putExtra("senderId",(String)hashMap.get("senderId"));
+						intent.putExtra("senderName",(String)hashMap.get("senderName"));
 						intent.putExtra("message",(String)hashMap.get("message"));
+						broadcastManager.sendBroadcast(intent);
+						break;
+					//登录应答消息
+					case "4":
+						intent.setAction(StaticDataPool.LOGIN_REPLY_MESSAGE);
+						intent.putExtra("status",(String)hashMap.get("status"));
+						intent.putExtra("nickName",(String)hashMap.get("nickName"));
+						broadcastManager.sendBroadcast(intent);
+						break;
+					//初始化信息
+					case "5":
+						List friends = (List) hashMap.get("friends");
+						intent.setAction(StaticDataPool.INIT_FRIEND_INFO);
+						intent.putExtra("friends", String.valueOf(friends));
+						broadcastManager.sendBroadcast(intent);
+						break;
+					//好友请求信息
+					case "7":
+						intent.setAction(StaticDataPool.FRIEND_REQUEST_MESSAGE);
+						intent.putExtra("userId",(String) hashMap.get("userId"));
+						intent.putExtra("nickName",(String)hashMap.get("nickName"));
+						broadcastManager.sendBroadcast(intent);
+						break;
+					//添加好友的回复消息
+					case "10":
+						intent.setAction(StaticDataPool.ADD_FRIEND_REPLY_MESSAGE);
+						intent.putExtra("userId",(String)hashMap.get("userId"));
+						intent.putExtra("nickName",(String)hashMap.get("nickName"));
+						broadcastManager.sendBroadcast(intent);
+						break;
+					//处理添加群的回复信息
+					case "11":
+						intent.setAction(StaticDataPool.ADD_REPLY_MESSAGE);
+						intent.putExtra("addType",(String)hashMap.get("addType"));
+						intent.putExtra("id",(String)hashMap.get("id"));
+						intent.putExtra("status",(String)hashMap.get("status"));
+						intent.putExtra("name",(String)hashMap.get("name"));
 						broadcastManager.sendBroadcast(intent);
 						break;
 					default:

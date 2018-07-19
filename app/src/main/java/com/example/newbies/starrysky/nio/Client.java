@@ -50,7 +50,7 @@ public class Client {
 	 * 设置处理器，同时注册
 	 * @param clientHandler
 	 */
-	public void online(ClientHandler clientHandler,String id, String password){
+	public void online(ClientHandler clientHandler, String message){
 		this.clientHandler = clientHandler;
 
 		try{
@@ -68,8 +68,7 @@ public class Client {
 	                	}
 	                	else{
 							isOffline = false;
-	                		//发送登录信息
-	                		sendMessage(MessagePool.login(id,password));
+							sendMessage(message);
 						}
 	                }  
 	                else if(key.isReadable()){ 

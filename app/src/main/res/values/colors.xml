@@ -6,6 +6,7 @@
 
     <color name="mtfBg">#1d6d7b75</color>
 
+    <color name="translucentWhite">#00ffffff</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="red">#ff0000</color>
@@ -26,8 +27,33 @@
     <color name="font13">#dddddd</color>
     <color name="font14">#eeeeee</color>
 
+    <color name="translucentFont1">#33111111</color>
+    <color name="translucentFont2">#33222222</color>
+    <color name="translucentFont3">#33333333</color>
+    <color name="translucentFont4">#33444444</color>
+    <color name="translucentFont5">#33555555</color>
+    <color name="translucentFont6">#33666666</color>
+    <color name="translucentFont7">#33777777</color>
+    <color name="translucentFont8">#33888888</color>
+    <color name="translucentFont9">#33999999</color>
+    <color name="translucentFont10">#33aaaaaa</color>
+    <color name="translucentFont11">#33bbbbbb</color>
+    <color name="translucentFont12">#33cccccc</color>
+    <color name="translucentFont13">#33dddddd</color>
+    <color name="translucentFont14">#33eeeeee</color>
+
     <color name="selector_grey">#DDDDDD</color>
     <color name="tab_gb">#F3F5F4</color>
     <color name="tab_normal_color">#515051</color>
     <color name="tab_selected_color">#D33D3C</color>
+
+    <color name="regist_edit">#6667f9</color>
+
+    <color name="regist_title">#f9df99</color>
+
+    <color name="botton_color">#99399df8</color>
+
+    <color name="sender_message_bg">#3366aaff</color>
+    <color name="friend_message_bg">#3399ff66</color>
+    <color name="message_font">#66ff6633</color>
 </resources>

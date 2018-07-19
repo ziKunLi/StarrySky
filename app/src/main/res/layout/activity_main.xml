@@ -7,14 +7,38 @@
     android:orientation="vertical"
     >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:background="?attr/colorPrimary">
+        <EditText
+            android:id="@+id/inputId"
+            android:layout_width="230dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/more"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@null"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/sureAdd"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_sure"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_more"/>
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
@@ -22,6 +46,59 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/friendRequest"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:paddingTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-160dp"
+        android:visibility="gone"
+        android:paddingBottom="20dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="您有新的好友请求"/>
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:text="陈冠希请求加你为好友"
+                android:textSize="15sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/refuse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="80dp"
+                    android:text="拒绝"/>
+                <Button
+                    android:id="@+id/agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="同意"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     <com.example.newbies.starrysky.view.BottomBarLayout
         android:id="@+id/bottomBarLayout"

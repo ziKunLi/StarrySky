@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card">
+
+    <TextView
+        android:id="@+id/addFriend"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="添加好友"/>
+    <TextView
+        android:id="@+id/addGroup"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/addFriend"
+        android:gravity="center"
+        android:text="添加群"/>
+</RelativeLayout>

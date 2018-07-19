@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/font11">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+        <TextView
+            android:id="@+id/returnLogin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_return"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="注册"/>
+    </RelativeLayout>
+
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        app:mtf_labelColor="@color/font4"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_id"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        app:mtf_backgroundColor="#42f8f2ff"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="手机号"
+            android:maxLines="1"
+            android:textColor="@color/regist_edit"
+            android:textSize="15sp"  />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/nickName"
+        android:layout_below="@+id/id"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        app:mtf_labelColor="@color/font4"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_password"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        app:mtf_backgroundColor="#42f8f2ff"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="昵称"
+            android:maxLines="1"
+            android:textColor="@color/regist_edit"
+            android:textSize="15sp" />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+
+    <com.example.newbies.starrysky.view.MaterialTextField
+        android:id="@+id/password"
+        android:layout_below="@+id/nickName"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        app:mtf_labelColor="@color/font4"
+        app:mtf_cardCollapsedHeight="1dp"
+        app:mtf_image="@drawable/ic_password"
+        app:mtf_openKeyboardOnFocus="true"
+        app:mtf_hasFocus="false"
+        app:mtf_backgroundColor="#42f8f2ff"
+        android:background="@drawable/mtf_bg">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:maxLines="1"
+            android:textColor="@color/regist_edit"
+            android:textSize="15sp" />
+    </com.example.newbies.starrysky.view.MaterialTextField>
+    <Button
+        android:id="@+id/regist"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="25dp"
+        android:text="注册"/>
+
+</RelativeLayout>

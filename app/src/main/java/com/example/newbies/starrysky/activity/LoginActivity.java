@@ -1,8 +1,13 @@
 package com.example.newbies.starrysky.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,11 +55,31 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.head)
     ImageView head;
 
-
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if(action.equals(StaticDataPool.LOGIN_REPLY_MESSAGE)){
+                String status = intent.getStringExtra("status");
+                if(status.equals("0")){
+                    showToast("该用户不存在！");
+                }
+                else if(status.equals("1")){
+                    StaticDataPool.nickName = intent.getStringExtra("nickName");
+                    startActivity(MainActivity.class);
+                    finish();
+                }
+                else if(status.equals("2")){
+                    showToast("密码错误！");
+                }
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //设置沉浸式状态栏
         setStatusBar(true);
         setContentView(R.layout.login_activity);
         //绑定组件
@@ -62,6 +87,7 @@ public class LoginActivity extends BaseActivity {
         initData();
         initView();
         initListener();
+        initBroadcastReceiver();
     }
 
     @Override
@@ -82,11 +108,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        List<String> receivers = new ArrayList<>();
-        receivers.add("1");
-        receivers.add("2");
-        receivers.add("3");
-        LogUtil.v(MessagePool.generalMessage("111",receivers,"你好"));
     }
 
     @Override
@@ -98,6 +119,12 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initListener() {
 
+    }
+
+    private void initBroadcastReceiver(){
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(StaticDataPool.LOGIN_REPLY_MESSAGE);
+        LocalBroadcastManager.getInstance(LoginActivity.this).registerReceiver(receiver,intentFilter);
     }
 
     @Override
@@ -117,16 +144,24 @@ public class LoginActivity extends BaseActivity {
             showToast("请输入账号或密码");
             return;
         }
-        new Thread(new Runnable() {
+        //利用单利线程池
+        StaticDataPool.executor.execute(new Runnable() {
             @Override
             public void run() {
-                StaticDataPool.client.connect("192.168.23.1", 6666);
-                //上线后，将会一直死循环监听服务器发来的消息，所以需要开启线程
-                StaticDataPool.client.online(new ClientHandler(),idString,passwordString);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (!StaticDataPool.isLogin) {
+                            StaticDataPool.client.connect("192.168.23.1", 6666);
+//                            StaticDataPool.client.connect("172.20.10.1", 6666);
+                            StaticDataPool.userId = idString;
+                            //上线后，将会一直死循环监听服务器发来的消息，所以需要开启线程
+                            StaticDataPool.client.online(new ClientHandler(), MessagePool.login(idString, passwordString));
+                        }
+                    }
+                }).start();
             }
-        }).start();
-        startActivity(MainActivity.class);
-        finish();
+        });
     }
 
     /**
@@ -141,6 +176,12 @@ public class LoginActivity extends BaseActivity {
      */
     @OnClick(R.id.registered)
     public void registered(){
-        showToast("注册");
+        startActivity(RegistActivity.class);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(LoginActivity.this).unregisterReceiver(receiver);
     }
 }
